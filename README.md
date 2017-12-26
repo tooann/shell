@@ -4,7 +4,7 @@
 <hr>
 演示地址：https://colinscales.github.io/scale
 
-![演示.png]
+![演示.png](https://github.com/ColinScales/shell/blob/master/static/image/code.png)
 
 <hr>
 ##依赖工具：
