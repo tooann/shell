@@ -57,9 +57,11 @@ import BScroll from 'better-scroll'
 import star from '../../components/star/star.vue'
 import ratingselect from '../../components/ratingselect/ratingselect'
 import {formatDate} from '../../common/js/formatDate.js'
+import data from '../../common/json/data.json'
 
-const ERR_OK = 0
 const ALL = 2
+// const ERR_OK = 0
+// const debug = process.env.NODE_ENV !== 'production'
 
 export default {
   props: {
@@ -73,19 +75,30 @@ export default {
     }
   },
   created () {
-    this.$http.get('api/ratings').then((response) => {
-      response = response.body
-      if (response.errno === ERR_OK) {
-        this.ratings = response.data
-        this.$nextTick(() => {
-          if (!this.ratingScroll) {
-            this.ratingScroll = new BScroll(this.$refs.ratings, {
-              click: true
-            })
-          } else {
-            this.ratingScroll.refresh()
-          }
+//    const url = debug ? '/api/ratings' : 'http://ustbhuangyi.com/sell/api/ratings'
+//    this.$http.get(url).then((response) => {
+//      response = response.data
+//      if (response.errno === ERR_OK) {
+//        this.ratings = response.data
+//        this.$nextTick(() => {
+//          if (!this.ratingScroll) {
+//            this.ratingScroll = new BScroll(this.$refs.ratings, {
+//              click: true
+//            })
+//          } else {
+//            this.ratingScroll.refresh()
+//          }
+//        })
+//      }
+//    })
+    this.ratings = data.ratings
+    this.$nextTick(() => {
+      if (!this.ratingScroll) {
+        this.ratingScroll = new BScroll(this.$refs.ratings, {
+          click: true
         })
+      } else {
+        this.ratingScroll.refresh()
       }
     })
   },
@@ -137,7 +150,8 @@ export default {
     left: 0
     bottom: 0
     right: 0
-
+    margin: 0 auto
+    max-width: 540px
     overflow: hidden
     .rating-wrapper
       padding: 18px 0

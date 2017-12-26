@@ -19,8 +19,10 @@
 <script>
   import header from './components/header/header'
   import {urlParse} from './common/js/util.js'
+  import data from './common/json/data.json'
 
-  const ERR_OK = 0
+//  const ERR_OK = 0
+//  const debug = process.env.NODE_ENV !== 'production'
 
   export default {
     data () {
@@ -34,14 +36,16 @@
       }
     },
     created () {
-      this.$http.get('/api/seller?id=' + this.seller.id).then(response => {
-        response = response.body
-        if (response.errno === ERR_OK) {
-          // 给this.seller扩展属性，保留id属性
-          this.seller = Object.assign({}, this.seller, response.data)
-          console.log(this.seller.id)
-        }
-      })
+//      const url = debug ? '/api/seller' : 'http://ustbhuangyi.com/sell/api/seller'
+//      this.$http(url + '?id=' + this.seller.id).then((response) => {
+//        response = response.data
+//        if (response.errno === ERR_OK) {
+//          // 给this.seller扩展属性，保留id属性
+//          this.seller = Object.assign({}, this.seller, response.data)
+//          console.log(this.seller.id)
+//        }
+//      })
+      this.seller = data.seller
     },
     components: {
       'v-header': header

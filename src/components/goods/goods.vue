@@ -42,8 +42,11 @@ import BScroll from 'better-scroll'
 import shopcart from '../../components/shopcart/shopcart'
 import cartcontrol from '../../components/cartcontrol/cartcontrol'
 import food from '../../components/food/food'
+import data from '../../common/json/data.json'
 
-const ERR_OK = 0
+// const ERR_OK = 0
+// const debug = process.env.NODE_ENV !== 'production'
+
 export default {
   props: {
     seller: {
@@ -83,15 +86,18 @@ export default {
   },
   created () {
     this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
-    this.$http.get('/api/goods').then(response => {
-      response = response.body
-      if (response.errno === ERR_OK) {
-        this.goods = response.data
-        this.$nextTick(() => {
+
+//    const url = debug ? '/api/goods' : 'http://ustbhuangyi.com/sell/api/goods'
+//    this.$http(url).then((response) => {
+//      response = response.data
+//      if (response.errno === ERR_OK) {
+//        this.goods = response.data
+//        this.$nextTick(() => {
 //          this._initScroll()
-        })
-      }
-    })
+//        })
+//      }
+//    })
+    this.goods = data.goods
   },
   mounted () {
     setTimeout(() => {
