@@ -7,7 +7,7 @@
 ![演示.png](https://github.com/ColinScales/shell/blob/master/static/image/code.png)
 
 <hr>
-##依赖工具：
+## 依赖工具：
 - vue-cli
 - webpack
 - stylus
@@ -17,9 +17,9 @@
 - better-scroll
 <hr>
 
-##安装：
+## 安装：
 1、安装node：http://nodejs.cn/download/ 
-      git：https://git-scm.com/downloads
+ git：https://git-scm.com/downloads
 
 2、从我的仓库复制代码：
 > $ git clone https://github.com/ColinScales/shell
